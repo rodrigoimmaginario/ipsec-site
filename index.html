@@ -56,6 +56,7 @@
   .hero h1{font-size:clamp(31px,4.3vw,48px)}
   .hero h1 em{font-style:normal;color:var(--azure-soft)}
   .hero .lead{margin:22px 0 32px;font-size:clamp(16px,1.9vw,18.5px);color:#c4d2e6;max-width:580px}
+  .nw{white-space:nowrap}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap}
   .hero .sig{margin-top:28px;font-size:13.5px;color:var(--muted-dark);display:flex;align-items:center;gap:10px}
   .hero .sig::before{content:"";width:28px;height:1px;background:var(--muted-dark)}
@@ -119,6 +120,15 @@
   blockquote::before{content:"“";font-size:64px;color:var(--amber);line-height:.6;display:block;margin-bottom:10px}
   blockquote footer{margin-top:18px;font-family:var(--f-body);font-size:13.5px;font-weight:400;color:var(--muted-dark)}
 
+  /* architecture options */
+  .arch{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+  .arch-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 22px 20px}
+  .arch-card.hl{border-color:var(--amber);box-shadow:0 10px 28px rgba(245,165,36,.14)}
+  .arch-card svg{width:30px;height:30px;margin-bottom:12px}
+  .arch-card h4{font-size:17px;color:var(--navy);margin-bottom:6px}
+  .arch-card p{font-size:14.2px;color:var(--muted)}
+  .arch-note{grid-column:1/-1;text-align:center;font-size:15px;color:var(--navy);font-weight:500}
+  @media(max-width:760px){.arch{grid-template-columns:1fr}}
   /* steps (diagnóstico) */
   .offer{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:start}
   @media(max-width:900px){.offer{grid-template-columns:1fr}}
@@ -230,7 +240,7 @@
     <div>
       <span class="kicker">Infraestrutura · Nuvem · Segurança · IA</span>
       <h1>Seu ambiente Microsoft está <em>seguro, eficiente e pronto para IA?</em></h1>
-      <p class="lead">Descobrimos com um diagnóstico de escopo fechado: mapeamos riscos, desperdícios em nuvem e licenças e a prontidão para IA — e entregamos um plano executivo que você executa com ou sem a gente.</p>
+      <p class="lead">Um diagnóstico de escopo fechado que avalia riscos, a melhor arquitetura — <span class="nw">on-premises</span>, nuvem ou híbrida —, capacidade, custos e maturidade para IA. Você recebe um plano executivo para seguir com ou sem a gente.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contato">Solicitar diagnóstico</a>
         <a class="btn btn-ghost" href="#diagnostico">Como funciona</a>
@@ -246,10 +256,10 @@
             <div><h4>Maturidade geral do ambiente</h4><p>Segurança, nuvem, licenciamento e IA</p></div>
           </div>
           <div class="row"><span>Riscos críticos de segurança</span><span class="tagx t-red">3 críticos</span></div>
-          <div class="row"><span>Licenças e recursos ociosos</span><span class="tagx t-amb">economia possível</span></div>
-          <div class="row"><span>Uso de IA sem governança</span><span class="tagx t-amb">detectado</span></div>
+          <div class="row"><span>Arquitetura recomendada</span><span class="tagx t-blu">híbrida</span></div>
+          <div class="row"><span>Capacidade e custos</span><span class="tagx t-amb">economia possível</span></div>
+          <div class="row"><span>Maturidade para IA</span><span class="tagx t-amb">nível 2 de 5</span></div>
           <div class="row"><span>Plano de ação priorizado</span><span class="tagx t-blu">90 dias</span></div>
-          <div class="row"><span>Quick wins</span><span class="tagx t-grn">5 ações</span></div>
           <p class="foot">Exemplo ilustrativo — não representa um cliente real.</p>
         </div>
       </div>
@@ -289,12 +299,27 @@
     <div class="sec-head">
       <span class="tag">Por onde começar</span>
       <h2>Diagnóstico Executivo de Ambiente</h2>
-      <p>Antes de qualquer projeto, clareza. Escopo e prazo fechados, linguagem para a diretoria e um plano que serve à sua empresa — mesmo que você não nos contrate depois.</p>
+      <p>Antes de qualquer projeto, clareza. Analisamos o ambiente atual, recomendamos a arquitetura certa para cada carga de trabalho, organizamos capacidade e custos e preparamos a empresa para IA — com escopo e prazo fechados e linguagem para a diretoria.</p>
+    </div>
+    <div class="arch">
+      <div class="arch-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="7" rx="1.5"/><rect x="5" y="13.5" width="14" height="7" rx="1.5"/><path d="M8.5 7h.01M8.5 17h.01"/></svg>
+        <h4>On-premises</h4><p>Controle e custo previsível para cargas estáveis, sensíveis ou com requisitos locais.</p>
+      </div>
+      <div class="arch-card hl">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="8" height="8" rx="1.5"/><path d="M14.5 15.5a3.2 3.2 0 1 1 .6-6.4 4.3 4.3 0 0 1 8.2 1.2 2.7 2.7 0 0 1-.3 5.2h-8.5Z" transform="translate(-2 -3)"/><path d="M11 16h3"/></svg>
+        <h4>Híbrido</h4><p>O melhor dos dois mundos: cada carga onde rende mais, com transição gradual e segura.</p>
+      </div>
+      <div class="arch-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 19a4.5 4.5 0 1 1 .9-8.9 6 6 0 0 1 11.6 1.6A3.7 3.7 0 0 1 18.5 19h-12Z"/></svg>
+        <h4>Nuvem</h4><p>Elasticidade, resiliência e velocidade — com governança para o custo não fugir do controle.</p>
+      </div>
+      <p class="arch-note">Não vendemos uma arquitetura: recomendamos a que faz sentido para o seu negócio, com base em risco, desempenho e custo total.</p>
     </div>
     <div class="offer">
       <ol class="steps">
         <li><h4>Conversa de alinhamento</h4><p>Entendemos negócio, prioridades e preocupações da diretoria e da TI.</p></li>
-        <li><h4>Leitura do ambiente</h4><p>Infraestrutura, identidade, segurança, Azure, Microsoft 365, licenças e uso de IA.</p></li>
+        <li><h4>Leitura do ambiente</h4><p>Arquitetura atual, capacidade, identidade, segurança, Azure, Microsoft 365, licenças e uso de IA.</p></li>
         <li><h4>Análise e priorização</h4><p>Riscos ordenados por impacto no negócio, não por jargão técnico.</p></li>
         <li><h4>Apresentação executiva</h4><p>Reunião com diretoria e TI: o que fazer, em que ordem e quanto custa não fazer.</p></li>
       </ol>
@@ -302,8 +327,9 @@
         <h3>O que você recebe</h3>
         <p>Um material objetivo, para decisão — não um PDF de prateleira.</p>
         <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Z"/></svg><div><b>Mapa de riscos priorizado</b><span>Segurança, disponibilidade e exposição a ransomware</span></div></div>
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 9 13l4 3.5L20 9"/><path d="M15.5 9H20v4.5"/></svg><div><b>Oportunidades de economia</b><span>Nuvem, licenciamento Microsoft e recursos ociosos</span></div></div>
-        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M9.5 4v3M14.5 4v3M9.5 17v3M14.5 17v3M4 9.5h3M4 14.5h3M17 9.5h3M17 14.5h3"/></svg><div><b>Prontidão para IA</b><span>Uso atual, riscos de dados e caminho seguro de adoção</span></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 9 13l4 3.5L20 9"/><path d="M15.5 9H20v4.5"/></svg><div><b>Capacidade e custos</b><span>Dimensionamento, crescimento previsto, licenças e desperdícios</span></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="8" height="6" rx="1.5"/><rect x="13" y="14" width="8" height="6" rx="1.5"/></svg><div><b>Arquitetura recomendada</b><span>On-premises, nuvem ou híbrida — o destino certo para cada carga</span></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M9.5 4v3M14.5 4v3M9.5 17v3M14.5 17v3M4 9.5h3M4 14.5h3M17 9.5h3M17 14.5h3"/></svg><div><b>Maturidade para IA</b><span>Nível de maturidade medido, riscos de dados e roteiro de adoção</span></div></div>
         <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><div><b>Plano de 90 dias</b><span>Quick wins e roadmap com esforço e prioridade</span></div></div>
         <a class="btn btn-primary" href="#contato">Quero o diagnóstico</a>
       </div>
@@ -330,13 +356,13 @@
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 19a4.5 4.5 0 1 1 .9-8.9 6 6 0 0 1 11.6 1.6A3.7 3.7 0 0 1 18.5 19h-12Z"/></svg></div>
         <h3>Nuvem, M365 e custos</h3>
         <p>Infraestrutura moderna, pagando apenas pelo que gera valor.</p>
-        <ul><li>Projetos e migração para Azure</li><li>Implantação e governança do Microsoft 365</li><li>Gestão de custos de nuvem e licenças</li></ul>
+        <ul><li>Arquitetura on-premises, nuvem ou híbrida</li><li>Projetos e migração para Azure</li><li>Implantação e governança do Microsoft 365</li><li>Gestão de capacidade, custos e licenças</li></ul>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><circle cx="12" cy="12" r="2"/><path d="M9.5 4v3M14.5 4v3M9.5 17v3M14.5 17v3M4 9.5h3M4 14.5h3M17 9.5h3M17 14.5h3"/></svg></div>
         <h3>IA com governança</h3>
         <p>Adotar IA com resultado, sem risco jurídico nem surpresa na fatura.</p>
-        <ul><li>Política de uso e diagnóstico de shadow AI</li><li>Copilot e agentes no Microsoft 365</li><li>Orçamento e controle de custos de IA</li></ul>
+        <ul><li>Medição de maturidade e roteiro de adoção</li><li>Política de uso e diagnóstico de shadow AI</li><li>Copilot e agentes no Microsoft 365</li><li>Orçamento e controle de custos de IA</li></ul>
       </div>
     </div>
   </div>
