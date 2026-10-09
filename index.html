@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPSEC Consultoria e Tecnologia — Infraestrutura, Nuvem e Segurança</title>
+<meta name="description" content="Consultoria em Azure, Microsoft 365, redes e segurança, gestão de custos de nuvem e adoção de IA com governança. Liderada por Microsoft Regional Director, 21x MVP, CISSP.">
+<style>
+  :root{
+    --navy:#0b1526;
+    --navy-2:#101e36;
+    --steel:#1b2d4d;
+    --azure:#2f81f7;
+    --azure-soft:#8ab8ff;
+    --ice:#eef3fa;
+    --white:#ffffff;
+    --text:#243244;
+    --muted:#5b6b80;
+    --muted-dark:#9db1cc;
+    --border:#dde6f2;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    color:var(--text);background:var(--white);line-height:1.6;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{line-height:1.2;font-weight:700}
+  a{color:inherit}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,21,38,.96);backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--white);text-decoration:none;font-weight:700;letter-spacing:.3px}
+  .brand .mark{
+    width:30px;height:30px;border-radius:8px;flex:0 0 auto;
+    background:linear-gradient(135deg,var(--azure),#1a5fd0);
+    display:grid;place-items:center;color:#fff;font-size:15px;font-weight:800;
+  }
+  .brand small{display:block;font-size:10px;font-weight:500;color:var(--muted-dark);letter-spacing:1.4px;text-transform:uppercase}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{color:#cdd9ea;text-decoration:none;font-size:14.5px;transition:color .15s}
+  .nav-links a:hover{color:#fff}
+  .btn{
+    display:inline-block;background:var(--azure);color:#fff;text-decoration:none;
+    padding:11px 22px;border-radius:9px;font-weight:600;font-size:15px;
+    transition:background .15s,transform .15s;
+  }
+  .btn:hover{background:#1f6fe8;transform:translateY(-1px)}
+  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}
+  .btn.ghost:hover{background:rgba(255,255,255,.08)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 500px at 80% -10%,rgba(47,129,247,.22),transparent 60%),
+      radial-gradient(700px 400px at 10% 110%,rgba(47,129,247,.10),transparent 60%),
+      var(--navy);
+    color:var(--white);
+    padding:92px 0 72px;
+  }
+  .hero .kicker{
+    display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--azure-soft);
+    border:1px solid rgba(138,184,255,.35);border-radius:100px;
+    padding:6px 16px;margin-bottom:26px;
+  }
+  .hero h1{font-size:clamp(30px,4.6vw,50px);max-width:820px;letter-spacing:-.5px}
+  .hero h1 em{font-style:normal;color:var(--azure-soft)}
+  .hero p.lead{margin:22px 0 34px;font-size:clamp(16px,2vw,19px);color:#c4d2e6;max-width:720px}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+  .proofbar{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.06);color:var(--white)}
+  .proofbar .wrap{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:8px;
+    padding-top:26px;padding-bottom:26px;text-align:center;
+  }
+  .proofbar b{display:block;font-size:21px;color:var(--azure-soft)}
+  .proofbar span{font-size:12.5px;color:var(--muted-dark);line-height:1.35;display:block}
+  @media(max-width:860px){.proofbar .wrap{grid-template-columns:repeat(2,1fr);gap:20px}}
+
+  /* ---------- sections ---------- */
+  section{padding:84px 0}
+  .sec-head{max-width:720px;margin-bottom:46px}
+  .sec-head .tag{font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure)}
+  .sec-head h2{font-size:clamp(25px,3.2vw,35px);margin:10px 0 14px;color:var(--navy)}
+  .sec-head p{color:var(--muted);font-size:16.5px}
+
+  .grid{display:grid;gap:22px}
+  .grid.c3{grid-template-columns:repeat(3,1fr)}
+  .grid.c2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:960px){.grid.c3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.grid.c3,.grid.c2{grid-template-columns:1fr}}
+
+  .card{
+    background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+    padding:28px 26px;transition:box-shadow .2s,transform .2s;
+  }
+  .card:hover{box-shadow:0 12px 32px rgba(16,42,84,.10);transform:translateY(-2px)}
+  .card .ico{
+    width:44px;height:44px;border-radius:10px;margin-bottom:18px;
+    background:var(--ice);display:grid;place-items:center;font-size:21px;
+  }
+  .card h3{font-size:18.5px;color:var(--navy);margin-bottom:9px}
+  .card p{font-size:14.8px;color:var(--muted)}
+  .card ul{margin:12px 0 0 0;list-style:none}
+  .card ul li{font-size:13.8px;color:var(--muted);padding-left:18px;position:relative;margin-top:5px}
+  .card ul li::before{content:"›";position:absolute;left:2px;color:var(--azure);font-weight:700}
+
+  .alt{background:var(--ice)}
+
+  /* ---------- AI highlight ---------- */
+  .ai-band{
+    background:linear-gradient(120deg,var(--navy) 0%,#132a52 70%,#17407e 100%);
+    color:var(--white);border-radius:20px;padding:54px 48px;
+    display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
+  }
+  .ai-band h2{font-size:clamp(23px,3vw,31px);margin-bottom:16px}
+  .ai-band p{color:#c4d2e6;font-size:16px;margin-bottom:12px}
+  .ai-band .pill-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .ai-band .pill{
+    font-size:13.5px;border:1px solid rgba(138,184,255,.4);color:var(--azure-soft);
+    border-radius:100px;padding:7px 15px;
+  }
+  .ai-band .side{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;padding:26px;
+  }
+  .ai-band .side h3{font-size:16px;margin-bottom:10px;color:var(--azure-soft)}
+  .ai-band .side p{font-size:14.2px;margin-bottom:0}
+  @media(max-width:860px){.ai-band{grid-template-columns:1fr;padding:38px 28px}}
+
+  /* ---------- products ---------- */
+  .prod .card{position:relative;overflow:hidden}
+  .prod .badge{
+    position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;
+    letter-spacing:.8px;text-transform:uppercase;color:var(--azure);
+    background:var(--ice);border-radius:100px;padding:4px 11px;
+  }
+  .prod .logo{
+    font-weight:800;font-size:19px;color:var(--navy);margin-bottom:4px;letter-spacing:-.2px;
+  }
+  .prod .cat{font-size:12.5px;color:var(--azure);font-weight:600;margin-bottom:14px}
+
+  /* ---------- authority ---------- */
+  .auth{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start}
+  @media(max-width:900px){.auth{grid-template-columns:1fr}}
+  .auth h2{font-size:clamp(25px,3.2vw,34px);color:var(--navy);margin:10px 0 18px}
+  .auth p{color:var(--muted);font-size:16px;margin-bottom:14px}
+  .cred-list{list-style:none;margin-top:8px}
+  .cred-list li{
+    display:flex;gap:13px;align-items:flex-start;padding:13px 0;
+    border-bottom:1px solid var(--border);font-size:15px;
+  }
+  .cred-list li:last-child{border-bottom:none}
+  .cred-list .dot{
+    flex:0 0 auto;width:26px;height:26px;border-radius:50%;margin-top:1px;
+    background:var(--ice);color:var(--azure);display:grid;place-items:center;
+    font-size:13px;font-weight:800;
+  }
+  blockquote{
+    background:var(--navy);color:#dbe6f5;border-radius:16px;
+    padding:30px 30px 24px;font-size:16.5px;line-height:1.65;position:relative;
+  }
+  blockquote::before{content:"“";font-size:58px;color:var(--azure);line-height:0;display:block;margin:18px 0 6px}
+  blockquote footer{margin-top:16px;font-size:13.5px;color:var(--muted-dark)}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--navy);color:var(--white);text-align:center}
+  .contact h2{font-size:clamp(25px,3.4vw,36px);margin-bottom:16px}
+  .contact p{color:#c4d2e6;max-width:620px;margin:0 auto 32px;font-size:16.5px}
+
+  footer.site{
+    background:var(--navy-2);color:var(--muted-dark);font-size:13.5px;
+    padding:30px 0;border-top:1px solid rgba(255,255,255,.07);
+  }
+  footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="mark">IP</span>
+      <span>IPSEC<small>Consultoria e Tecnologia</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicos">Consultoria</a></li>
+      <li><a href="#ia">Jornada de IA</a></li>
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
+    </ul>
+    <a class="btn" href="#contato">Agendar conversa</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Infraestrutura · Nuvem · Segurança · IA</span>
+    <h1>Tecnologia séria para empresas que <em>não podem errar</em>.</h1>
+    <p class="lead">
+      Consultoria em Azure, Microsoft 365, redes e segurança — conduzida por quem passou
+      30 anos construindo, protegendo e operando ambientes críticos. Não aprendemos no seu
+      ambiente: chegamos com a experiência que o problema exige.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="#contato">Fale com um especialista</a>
+      <a class="btn ghost" href="#servicos">Conheça nossos serviços</a>
+    </div>
+  </div>
+</section>
+
+<div class="proofbar">
+  <div class="wrap">
+    <div><b>30+</b><span>anos em TI, segurança e nuvem</span></div>
+    <div><b>21x</b><span>Microsoft MVP consecutivos</span></div>
+    <div><b>10 anos</b><span>Microsoft Regional Director</span></div>
+    <div><b>CISSP</b><span>certificação em segurança desde 2009</span></div>
+    <div><b>4</b><span>cases publicados pela própria Microsoft</span></div>
+  </div>
+</div>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Consultoria</span>
+      <h2>Serviços para ambientes que precisam funcionar — e provar que funcionam</h2>
+      <p>Do diagnóstico ao projeto executado: avaliamos, desenhamos e conduzimos a evolução
+      do seu ambiente Microsoft, com segurança e custo sob controle desde o primeiro dia.</p>
+    </div>
+    <div class="grid c3">
+      <div class="card">
+        <div class="ico">☁️</div>
+        <h3>Projetos Azure</h3>
+        <p>Arquitetura, migração e operação de workloads no Azure — incluindo cenários híbridos com o datacenter que você já tem.</p>
+        <ul>
+          <li>Migração e modernização de servidores</li>
+          <li>Redes híbridas e conectividade segura</li>
+          <li>Alta disponibilidade e disaster recovery</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico">🔍</div>
+        <h3>Análise de ambiente</h3>
+        <p>Assessment completo de infraestrutura, identidade e segurança: o que existe, o que está em risco e o que fazer primeiro.</p>
+        <ul>
+          <li>Inventário e mapa de riscos priorizado</li>
+          <li>Active Directory e identidade</li>
+          <li>Plano de ação executável, não um PDF de prateleira</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico">🛡️</div>
+        <h3>Redes e segurança</h3>
+        <p>Proteção de perímetro, segmentação, hardening e resposta — com a visão de quem constrói produtos de segurança, não só os revende.</p>
+        <ul>
+          <li>Segurança de servidores Windows e AD</li>
+          <li>Proteção contra ransomware</li>
+          <li>Arquitetura de redes corporativas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico">💼</div>
+        <h3>Microsoft 365</h3>
+        <p>Implantação e governança do ambiente de trabalho moderno: colaboração produtiva sem abrir mão de controle.</p>
+        <ul>
+          <li>Migração de e-mail e colaboração</li>
+          <li>Segurança e conformidade no M365</li>
+          <li>Teams, SharePoint e automação</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico">📉</div>
+        <h3>Custos de nuvem e licenciamento</h3>
+        <p>FinOps pragmático: pagar o que precisa, do jeito certo. Revisão de licenças, dimensionamento e otimização contínua.</p>
+        <ul>
+          <li>Diagnóstico de gastos Azure e M365</li>
+          <li>Otimização de licenciamento Microsoft</li>
+          <li>Governança de custos recorrente</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="ico">🤖</div>
+        <h3>Adoção de IA com governança</h3>
+        <p>Da política de uso à implantação de copilotos e agentes: IA que gera resultado sem virar risco jurídico ou surpresa na fatura.</p>
+        <ul>
+          <li>Estratégia e casos de uso priorizados</li>
+          <li>Visibilidade e controle do uso de IA</li>
+          <li>Orçamento e monitoramento de custos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="ia">
+  <div class="wrap">
+    <div class="ai-band">
+      <div>
+        <h2>Sua empresa vai usar IA. A questão é: com ou sem controle?</h2>
+        <p>
+          Seus colaboradores provavelmente já usam IA — muitas vezes sem que ninguém saiba,
+          em ferramentas não aprovadas, com dados da empresa. Ajudamos você a transformar esse
+          risco em vantagem: uma jornada de adoção estruturada, com segurança, governança e
+          custo previsível.
+        </p>
+        <div class="pill-list">
+          <span class="pill">Diagnóstico de uso de IA (shadow AI)</span>
+          <span class="pill">Política de uso e governança</span>
+          <span class="pill">Copilot e agentes no M365</span>
+          <span class="pill">Controle de custos de IA</span>
+        </div>
+      </div>
+      <div class="side">
+        <h3>Não é teoria — é produto</h3>
+        <p>
+          Desenvolvemos o <strong>ShadowAIGuard</strong>, software que detecta e governa o uso
+          de IA no ambiente corporativo. A metodologia que aplicamos na consultoria é a mesma
+          que colocamos dentro de produto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prod" id="produtos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Produtos próprios</span>
+      <h2>Quem constrói software de segurança entende de segurança</h2>
+      <p>Além da consultoria, desenvolvemos produtos que resolvem problemas reais de empresas
+      que operam ambientes Windows — e que provam, em código, a profundidade do que sabemos fazer.</p>
+    </div>
+    <div class="grid c3">
+      <div class="card">
+        <span class="badge">Disponível</span>
+        <div class="logo">RansomGuard</div>
+        <div class="cat">Proteção contra ransomware</div>
+        <p>Detecta e contém ransomware em servidores Windows antes que o estrago se espalhe.
+        Monitoramento de pastas, sensores de comportamento e políticas de resposta.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Disponível</span>
+        <div class="logo">ShadowAIGuard</div>
+        <div class="cat">Governança de IA corporativa</div>
+        <p>Firewall de IA para Active Directory: visibilidade de todo uso de IA no endpoint —
+        sem inspecionar conteúdo — e bloqueio por política. Do shadow AI ao uso homologado.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Acesso antecipado</span>
+        <div class="logo">Pulso</div>
+        <div class="cat">Monitoramento de servidores</div>
+        <p>Monitoramento contínuo de servidores Windows e IIS com análise de ambiente e
+        diagnóstico — feito para quem precisa saber que está tudo no ar, com evidências.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="quem-somos">
+  <div class="wrap auth">
+    <div>
+      <span class="tag" style="font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure)">Quem somos</span>
+      <h2>Experiência que não se improvisa</h2>
+      <p>
+        A IPSEC nasce da união de três sócios: liderança técnica reconhecida
+        internacionalmente, experiência de gestão em projetos corporativos e uma rede
+        consolidada de relacionamento com empresas do Espírito Santo.
+      </p>
+      <p>
+        À frente da prática técnica está um profissional com três décadas de estrada:
+        fundador de empresa de tecnologia adquirida por um dos maiores grupos educacionais
+        do país, ex-CTO universitário por 17 anos, Ph.D. e palestrante em eventos Microsoft
+        no Brasil e no exterior.
+      </p>
+      <ul class="cred-list">
+        <li><span class="dot">✓</span><span><strong>Microsoft Regional Director</strong> (2015–2025) — título concedido a um grupo seleto de especialistas no mundo</span></li>
+        <li><span class="dot">✓</span><span><strong>Microsoft MVP por 21 anos consecutivos</strong> (2004–2024) em infraestrutura e segurança</span></li>
+        <li><span class="dot">✓</span><span><strong>CISSP desde 2009</strong> — a principal certificação internacional de segurança da informação</span></li>
+        <li><span class="dot">✓</span><span><strong>Ph.D. em Administração (FGV)</strong> — tecnologia com visão de negócio, não só de servidor</span></li>
+        <li><span class="dot">✓</span><span><strong>Speaker</strong> no Microsoft Ignite (EUA), TechEd USA e TechEd Brasil</span></li>
+      </ul>
+    </div>
+    <div>
+      <blockquote>
+        One of the best security professionals in Brazil and Latin America… a recognized
+        authority in Security.
+        <footer>— Principal Technical Program Manager, Microsoft (recomendação no LinkedIn)</footer>
+      </blockquote>
+      <div class="card" style="margin-top:22px">
+        <h3>Por que isso importa para você</h3>
+        <p>
+          Consultoria é um mercado de promessas. Nós preferimos histórico verificável:
+          certificações públicas, cases publicados pela Microsoft, produtos em produção
+          e clientes que podem ser consultados. Autoridade não se declara — se demonstra.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <h2>Vamos conversar sobre o seu ambiente?</h2>
+    <p>
+      Uma primeira conversa sem compromisso: entendemos seu cenário, apontamos os riscos e
+      oportunidades mais evidentes e dizemos, com franqueza, se e como podemos ajudar.
+    </p>
+    <a class="btn" href="mailto:contato@exemplo.com.br?subject=Quero%20conversar%20sobre%20meu%20ambiente">Agendar conversa</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 IPSEC Consultoria e Tecnologia · Vitória, ES</span>
+    <span>Azure · Microsoft 365 · Segurança · FinOps · IA</span>
+  </div>
+</footer>
+
+</body>
+</html>
