@@ -1,36 +1,58 @@
 # IPSEC Consultoria e Tecnologia — Landing Page
 
 Landing page institucional da iniciativa de portfólio de capacidades (Rodrigo, Carlos e
-terceiro sócio). **O nome "IPSEC Consultoria e Tecnologia" é temporário** e será
-substituído quando a marca definitiva for escolhida.
+terceiro sócio). **O nome "IPSEC Consultoria e Tecnologia" é temporário.**
+
+Publicação temporária (com `noindex`): https://rodrigoimmaginario.github.io/ipsec-site/
 
 ## Objetivo
 
-Vender consultoria e produtos para empresas, com linguagem que transmite autoridade,
-competência e experiência.
+Vender consultoria e produtos para empresas do ES, com linguagem de autoridade,
+competência e experiência — e uma oferta de entrada clara.
 
-## Conteúdo
+## Estrutura (v2)
 
-- **Hero + proofbar** — posicionamento e credenciais (30 anos, 21x MVP, RD, CISSP, Ph.D.)
-- **Consultoria** — Azure, análise de ambiente, redes/segurança, Microsoft 365,
-  custos de nuvem/licenciamento (FinOps), adoção de IA com governança
-- **Jornada de IA** — destaque: IA com segurança e controle de custos (âncora: ShadowAIGuard)
-- **Produtos próprios** — RansomGuard, ShadowAIGuard, Pulso (este marcado "acesso
-  antecipado" — ainda não liberado publicamente)
-- **Quem somos** — credenciais verificáveis + citação de recomendação Microsoft/LinkedIn
-- **Contato** — CTA `mailto:` placeholder (`contato@exemplo.com.br` — trocar)
+1. **Hero** — headline centrada na oferta de entrada + mockup de relatório executivo
+   (rotulado como exemplo ilustrativo)
+2. **Barra de prova** — 30+ anos · 2 décadas de reconhecimentos Microsoft · CISSP · 3 produtos
+3. **Faixa de especialidades** — texto (sem logos oficiais Microsoft — ver decisões)
+4. **Citação** — recomendação pública de Principal TPM da Microsoft (só cargo, sem nome)
+5. **Diagnóstico Executivo de Ambiente** — oferta de entrada: 4 etapas + entregáveis
+6. **Consultoria em 3 frentes** — Segurança e redes · Nuvem, M365 e custos · IA com governança
+7. **Jornada de IA** — com tela real do ShadowAIGuard (custo de IA)
+8. **Produtos** — telas reais + links: RansomGuard, ShadowAIGuard, Pulso (acesso antecipado)
+9. **Quem somos** — 3 sócios por função (sem nomes e sem fotos) + credenciais
+10. **Artigos** — 4 destaques + 4 arquivo, todos no LinkedIn
+11. **Contato** — CTA "Solicitar diagnóstico" (mailto placeholder) + CTA fixo no mobile
 
-## Pendências (v2)
+## Decisões
 
-- [ ] Nome definitivo da empresa e identidade visual
-- [ ] E-mail/canal de contato real (hoje placeholder)
-- [ ] Nomes/bios dos três sócios (hoje texto genérico "três sócios")
-- [ ] Logos/links reais dos produtos (sites ransomguard / shadowaiguard.com.br)
-- [ ] Fotos, cases com clientes do ES e depoimentos locais
-- [ ] Domínio, hospedagem e analytics
+- **Sem foto do Rodrigo** — decisão dele; não reabrir.
+- **Sem cases Microsoft (2005–2015)** — removidos por serem antigos; podem sugerir
+  experiência datada.
+- **Sem logos oficiais Microsoft/MVP/RD** — diretrizes de marca e títulos de períodos já
+  encerrados; usar apenas texto.
+- **Telas de produto** — somente imagens já publicadas nos sites públicos dos produtos.
+  O relatório do Pulso não foi usado porque mostra domínio e URLs que aparentam ser reais.
+- Tipografia Inter (corpo) + Sora (títulos) via Google Fonts, com fallback de sistema.
+- Acento âmbar exclusivo para CTAs.
+
+## Pendências (dependem dos sócios)
+
+- [ ] **Oferta de entrada**: confirmar nome, prazo, entregáveis, gratuito ou pago
+- [ ] E-mail real e **número de WhatsApp** (consenso dos 4 modelos consultados: prioritário)
+- [ ] Calendly ou equivalente para agendamento
+- [ ] Nomes dos sócios: exibir ou não
+- [ ] Isca digital (ex.: checklist de riscos em Azure/M365/IA)
+- [ ] Analytics (GA4 ou Plausible)
+- [ ] Nome definitivo, domínio e remoção do `noindex`
+
+## Consultas
+
+Notas de consulta a modelos externos ficam em `docs/consultas/` — **local apenas, no
+`.gitignore`** (repositório é público).
 
 ## Técnica
 
-Arquivo único `index.html`, autocontido (sem dependências externas, sem fontes remotas,
-sem JavaScript), responsivo, PT-BR. Abre offline em qualquer navegador — adequado para
-circular entre os sócios para feedback.
+HTML/CSS estático, sem JavaScript. Imagens em `assets/shots/` (WebP). Responsivo,
+verificado em 1440px e 390px sem overflow horizontal.

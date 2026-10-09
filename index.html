@@ -3,339 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPSEC Consultoria e Tecnologia — Infraestrutura, Nuvem e Segurança</title>
-<meta name="description" content="Consultoria em Azure, Microsoft 365, redes e segurança, gestão de custos de nuvem e adoção de IA com governança. Três décadas de experiência e reconhecimentos internacionais Microsoft.">
+<title>IPSEC Consultoria e Tecnologia — Infraestrutura, Nuvem, Segurança e IA</title>
+<meta name="description" content="Diagnóstico executivo de ambiente Microsoft: riscos, custos de nuvem e licenciamento e prontidão para IA. Consultoria em Azure, Microsoft 365, redes e segurança.">
 <meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0b1526;
-    --navy-2:#101e36;
-    --steel:#1b2d4d;
-    --azure:#2f81f7;
-    --azure-soft:#8ab8ff;
-    --ice:#eef3fa;
-    --white:#ffffff;
-    --text:#243244;
-    --muted:#5b6b80;
-    --muted-dark:#9db1cc;
-    --border:#dde6f2;
-    --red:#e5534b;
-    --violet:#8957e5;
-    --green:#3fb950;
-    --radius:14px;
-    --maxw:1120px;
+    --navy:#0b1526; --navy-2:#101e36; --graphite:#162235;
+    --azure:#2f81f7; --azure-2:#5aa6ff; --azure-soft:#8ab8ff;
+    --amber:#f5a524; --amber-2:#ffb940;
+    --ice:#eef3fa; --white:#fff;
+    --text:#243244; --muted:#5b6b80; --muted-dark:#9db1cc; --border:#dde6f2;
+    --radius:14px; --maxw:1100px;
+    --f-body:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    --f-head:"Sora","Inter","Segoe UI",system-ui,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
-    color:var(--text);background:var(--white);line-height:1.6;
-  }
+  body{font-family:var(--f-body);color:var(--text);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  h1,h2,h3{line-height:1.2;font-weight:700}
+  h1,h2,h3,h4{font-family:var(--f-head);line-height:1.18;font-weight:700;letter-spacing:-.02em}
   a{color:inherit}
+  img{max-width:100%;display:block}
   svg{display:block}
 
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(11,21,38,.96);backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;color:var(--white);text-decoration:none;font-weight:700;letter-spacing:.3px}
-  .brand .mark{
-    width:30px;height:30px;border-radius:8px;flex:0 0 auto;
-    background:linear-gradient(135deg,var(--azure),#1a5fd0);
-    display:grid;place-items:center;color:#fff;font-size:15px;font-weight:800;
-  }
-  .brand small{display:block;font-size:10px;font-weight:500;color:var(--muted-dark);letter-spacing:1.4px;text-transform:uppercase}
+  /* buttons */
+  .btn{display:inline-block;text-decoration:none;padding:13px 24px;border-radius:10px;font-weight:600;font-size:15px;transition:background .15s,transform .15s,box-shadow .15s}
+  .btn-primary{background:var(--amber);color:var(--navy)}
+  .btn-primary:hover{background:var(--amber-2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,165,36,.25)}
+  .btn-ghost{color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .btn-sm{padding:9px 18px;font-size:14px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(11,21,38,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--f-head);font-weight:700}
+  .brand .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--azure),#1a5fd0);display:grid;place-items:center;font-size:14px;font-weight:800}
+  .brand small{display:block;font-family:var(--f-body);font-size:10px;font-weight:500;color:var(--muted-dark);letter-spacing:1.4px;text-transform:uppercase}
   .nav-links{display:flex;gap:26px;list-style:none}
-  .nav-links a{color:#cdd9ea;text-decoration:none;font-size:14.5px;transition:color .15s}
+  .nav-links a{color:#cdd9ea;text-decoration:none;font-size:14.5px}
   .nav-links a:hover{color:#fff}
-  .btn{
-    display:inline-block;background:var(--azure);color:#fff;text-decoration:none;
-    padding:11px 22px;border-radius:9px;font-weight:600;font-size:15px;
-    transition:background .15s,transform .15s;
-  }
-  .btn:hover{background:#1f6fe8;transform:translateY(-1px)}
-  .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}
-  .btn.ghost:hover{background:rgba(255,255,255,.08)}
-  @media(max-width:900px){.nav-links{display:none}}
+  @media(max-width:920px){.nav-links{display:none}}
 
-  /* ---------- hero ---------- */
-  .hero{
-    background:
-      radial-gradient(1100px 500px at 80% -10%,rgba(47,129,247,.22),transparent 60%),
-      radial-gradient(700px 400px at 10% 110%,rgba(47,129,247,.10),transparent 60%),
-      var(--navy);
-    color:var(--white);
-    padding:80px 0 64px;overflow:hidden;
-  }
-  .hero .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-  @media(max-width:920px){.hero .cols{grid-template-columns:1fr}.hero .art{max-width:460px;margin:0 auto}}
-  .hero .kicker{
-    display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:1.6px;
-    text-transform:uppercase;color:var(--azure-soft);
-    border:1px solid rgba(138,184,255,.35);border-radius:100px;
-    padding:6px 16px;margin-bottom:26px;
-  }
-  .hero h1{font-size:clamp(30px,4.4vw,47px);letter-spacing:-.5px}
+  /* hero */
+  .hero{background:radial-gradient(1000px 520px at 85% -10%,rgba(47,129,247,.25),transparent 60%),radial-gradient(600px 380px at 0% 110%,rgba(47,129,247,.12),transparent 60%),var(--navy);color:#fff;padding:84px 0 76px}
+  .hero .cols{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+  @media(max-width:940px){.hero .cols{grid-template-columns:1fr;gap:44px}}
+  .kicker{display:inline-block;font-size:12px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure-soft);border:1px solid rgba(138,184,255,.35);border-radius:100px;padding:6px 15px;margin-bottom:24px}
+  .hero h1{font-size:clamp(31px,4.3vw,48px)}
   .hero h1 em{font-style:normal;color:var(--azure-soft)}
-  .hero p.lead{margin:22px 0 34px;font-size:clamp(16px,2vw,18.5px);color:#c4d2e6;max-width:620px}
-  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-  .hero .art svg{width:100%;height:auto}
+  .hero .lead{margin:22px 0 32px;font-size:clamp(16px,1.9vw,18.5px);color:#c4d2e6;max-width:580px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .sig{margin-top:28px;font-size:13.5px;color:var(--muted-dark);display:flex;align-items:center;gap:10px}
+  .hero .sig::before{content:"";width:28px;height:1px;background:var(--muted-dark)}
 
-  .proofbar{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.06);color:var(--white)}
-  .proofbar .wrap{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
-    padding-top:26px;padding-bottom:26px;text-align:center;
-  }
-  .proofbar b{display:block;font-size:20px;color:var(--azure-soft)}
-  .proofbar span{font-size:12.5px;color:var(--muted-dark);line-height:1.35;display:block}
-  @media(max-width:860px){.proofbar .wrap{grid-template-columns:repeat(2,1fr);gap:20px}}
+  /* report mockup */
+  .report{background:#fff;color:var(--text);border-radius:16px;box-shadow:0 30px 70px rgba(0,0,0,.45);overflow:hidden;transform:rotate(-1.2deg)}
+  .report .top{background:var(--graphite);color:#fff;padding:16px 22px;display:flex;justify-content:space-between;align-items:center}
+  .report .top b{font-family:var(--f-head);font-size:15px}
+  .report .top span{font-size:11px;color:var(--muted-dark);letter-spacing:1px;text-transform:uppercase}
+  .report .body{padding:20px 22px 22px}
+  .report .score{display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--border);margin-bottom:6px}
+  .report .ring{width:64px;height:64px;flex:0 0 auto}
+  .report .score h4{font-size:15px;color:var(--navy)}
+  .report .score p{font-size:12.5px;color:var(--muted)}
+  .report .row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #eef2f8;font-size:13.5px}
+  .report .row:last-of-type{border-bottom:none}
+  .tagx{font-size:11px;font-weight:700;border-radius:100px;padding:3px 10px}
+  .t-red{background:#ffeceb;color:#c43d36}.t-amb{background:#fff4dd;color:#a76a00}.t-blu{background:#e8f1ff;color:#1f63c9}.t-grn{background:#e6f6ea;color:#1f7a37}
+  .report .foot{margin-top:12px;font-size:11px;color:var(--muted);text-align:right;font-style:italic}
 
-  /* ---------- sections ---------- */
-  section{padding:84px 0}
-  .sec-head{max-width:720px;margin-bottom:46px}
-  .sec-head .tag{font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure)}
-  .sec-head h2{font-size:clamp(25px,3.2vw,35px);margin:10px 0 14px;color:var(--navy)}
-  .sec-head p{color:var(--muted);font-size:16.5px}
+  /* proofbar + tech strip */
+  .proofbar{background:var(--navy-2);color:#fff;border-top:1px solid rgba(255,255,255,.06)}
+  .proofbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding-top:28px;padding-bottom:28px;text-align:center}
+  .proofbar b{display:block;font-family:var(--f-head);font-size:22px;color:var(--azure-soft)}
+  .proofbar span{font-size:12.5px;color:var(--muted-dark);line-height:1.4;display:block}
+  @media(max-width:760px){.proofbar .wrap{grid-template-columns:repeat(2,1fr);gap:22px}}
+  .techstrip{border-bottom:1px solid var(--border);background:#fff}
+  .techstrip .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 26px;padding-top:22px;padding-bottom:22px}
+  .techstrip span{font-family:var(--f-head);font-weight:600;font-size:15px;color:#8a99ad;letter-spacing:-.01em;white-space:nowrap}
+  .techstrip span.lbl{font-family:var(--f-body);font-size:11px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted)}
 
-  .grid{display:grid;gap:22px}
-  .grid.c3{grid-template-columns:repeat(3,1fr)}
-  .grid.c2{grid-template-columns:repeat(2,1fr)}
-  @media(max-width:960px){.grid.c3{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){.grid.c3,.grid.c2{grid-template-columns:1fr}}
-
-  .card{
-    background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
-    padding:28px 26px;transition:box-shadow .2s,transform .2s;
-  }
-  .card:hover{box-shadow:0 12px 32px rgba(16,42,84,.10);transform:translateY(-2px)}
-  .card .ico{
-    width:52px;height:52px;border-radius:12px;margin-bottom:18px;
-    background:linear-gradient(135deg,#eaf2ff,#f5f9ff);
-    border:1px solid #d8e6fb;
-    display:grid;place-items:center;
-  }
-  .card .ico svg{width:28px;height:28px}
-  .card h3{font-size:18.5px;color:var(--navy);margin-bottom:9px}
-  .card p{font-size:14.8px;color:var(--muted)}
-  .card ul{margin:12px 0 0 0;list-style:none}
-  .card ul li{font-size:13.8px;color:var(--muted);padding-left:18px;position:relative;margin-top:5px}
-  .card ul li::before{content:"›";position:absolute;left:2px;color:var(--azure);font-weight:700}
-
+  /* sections */
+  section{padding:88px 0}
   .alt{background:var(--ice)}
+  .sec-head{max-width:700px;margin-bottom:44px}
+  .sec-head.center{text-align:center;margin-left:auto;margin-right:auto}
+  .tag{font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure)}
+  .sec-head h2{font-size:clamp(26px,3.2vw,36px);margin:10px 0 14px;color:var(--navy)}
+  .sec-head p{color:var(--muted);font-size:16.5px}
+  .grid{display:grid;gap:22px}
+  .c3{grid-template-columns:repeat(3,1fr)}
+  .c4{grid-template-columns:repeat(4,1fr)}
+  .c2{grid-template-columns:repeat(2,1fr)}
+  .grid>*{min-width:0}
+  @media(max-width:980px){.c3,.c4{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.c3,.c4,.c2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 26px;transition:box-shadow .2s,transform .2s}
+  .card:hover{box-shadow:0 14px 34px rgba(16,42,84,.10);transform:translateY(-2px)}
+  .card h3{font-size:19px;color:var(--navy);margin-bottom:8px}
+  .card p{font-size:14.8px;color:var(--muted)}
+  .card ul{list-style:none;margin-top:14px}
+  .card li{font-size:14px;color:var(--text);padding:7px 0 7px 24px;position:relative;border-top:1px solid #eef2f8}
+  .card li::before{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:2px;background:var(--azure);transform:rotate(45deg)}
+  .ico{width:50px;height:50px;border-radius:12px;margin-bottom:18px;background:linear-gradient(135deg,#e6f0ff,#f4f8ff);border:1px solid #d6e5fb;display:grid;place-items:center}
+  .ico svg{width:26px;height:26px}
 
-  /* ---------- AI highlight ---------- */
-  .ai-band{
-    background:linear-gradient(120deg,var(--navy) 0%,#132a52 70%,#17407e 100%);
-    color:var(--white);border-radius:20px;padding:54px 48px;
-    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
-  }
-  .ai-band h2{font-size:clamp(23px,3vw,31px);margin-bottom:16px}
-  .ai-band p{color:#c4d2e6;font-size:16px;margin-bottom:12px}
-  .ai-band .pill-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-  .ai-band .pill{
-    font-size:13.5px;border:1px solid rgba(138,184,255,.4);color:var(--azure-soft);
-    border-radius:100px;padding:7px 15px;
-  }
-  .ai-band .side svg{width:100%;height:auto;margin-bottom:18px}
-  .ai-band .side .note{
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-    border-radius:14px;padding:22px;
-  }
-  .ai-band .side h3{font-size:16px;margin-bottom:10px;color:var(--azure-soft)}
-  .ai-band .side p{font-size:14.2px;margin-bottom:0}
-  @media(max-width:860px){.ai-band{grid-template-columns:1fr;padding:38px 28px}}
+  /* social proof */
+  .proof{max-width:860px}
+  .proof blockquote{text-align:center;align-items:center}
+  blockquote{background:var(--navy);color:#dbe6f5;border-radius:16px;padding:34px 34px 28px;font-family:var(--f-head);font-size:clamp(18px,2.1vw,22px);line-height:1.5;font-weight:600;letter-spacing:-.01em;display:flex;flex-direction:column;justify-content:center}
+  blockquote::before{content:"“";font-size:64px;color:var(--amber);line-height:.6;display:block;margin-bottom:10px}
+  blockquote footer{margin-top:18px;font-family:var(--f-body);font-size:13.5px;font-weight:400;color:var(--muted-dark)}
 
-  /* ---------- products ---------- */
-  .prod .card{position:relative;overflow:hidden;padding-top:22px}
-  .prod .shot{margin:-22px -26px 20px;border-bottom:1px solid var(--border)}
-  .prod .shot svg{width:100%;height:auto}
-  .prod .badge{
-    position:absolute;top:14px;right:14px;font-size:11px;font-weight:700;
-    letter-spacing:.8px;text-transform:uppercase;color:#fff;
-    background:rgba(11,21,38,.55);backdrop-filter:blur(4px);
-    border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:4px 11px;
-  }
-  .prod .logo{font-weight:800;font-size:19px;color:var(--navy);margin-bottom:4px;letter-spacing:-.2px}
-  .prod .cat{font-size:12.5px;font-weight:600;margin-bottom:14px}
-  .prod a.plink{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:600;color:var(--azure);text-decoration:none}
-  .prod a.plink:hover{text-decoration:underline}
-  .prod .rg .cat{color:var(--red)}
-  .prod .sg .cat{color:var(--violet)}
-  .prod .pu .cat{color:var(--green)}
+  /* steps (diagnóstico) */
+  .offer{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:start}
+  @media(max-width:900px){.offer{grid-template-columns:1fr}}
+  .steps{counter-reset:s;list-style:none}
+  .steps li{counter-increment:s;position:relative;padding:0 0 26px 60px}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--f-head);font-weight:700;display:grid;place-items:center}
+  .steps li::after{content:"";position:absolute;left:19.5px;top:44px;bottom:4px;width:1px;background:var(--border)}
+  .steps li:last-child::after{display:none}
+  .steps h4{font-size:17px;color:var(--navy);margin-bottom:4px}
+  .steps p{font-size:14.8px;color:var(--muted)}
+  .deliver{background:var(--navy);color:#fff;border-radius:16px;padding:32px}
+  .deliver h3{font-size:20px;margin-bottom:6px}
+  .deliver>p{color:#c4d2e6;font-size:14.5px;margin-bottom:18px}
+  .deliver .item{display:flex;gap:14px;padding:13px 0;border-top:1px solid rgba(255,255,255,.1)}
+  .deliver .item svg{width:22px;height:22px;flex:0 0 auto;margin-top:2px}
+  .deliver .item b{display:block;font-size:15px}
+  .deliver .item span{font-size:13.5px;color:var(--muted-dark)}
+  .deliver .btn{margin-top:20px}
 
-  /* ---------- insights ---------- */
+  /* AI band */
+  .ai-band{background:linear-gradient(120deg,var(--navy) 0%,#132a52 70%,#17407e 100%);color:#fff;border-radius:20px;padding:54px 50px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+  .ai-band h2{font-size:clamp(24px,3vw,32px);margin-bottom:16px}
+  .ai-band p{color:#c4d2e6;font-size:16px}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .pill{font-size:13.5px;border:1px solid rgba(138,184,255,.4);color:var(--azure-soft);border-radius:100px;padding:7px 15px}
+  .ai-band .shot{border-radius:12px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15)}
+  .ai-band .cap{font-size:13px;color:var(--muted-dark);margin-top:12px}
+  @media(max-width:880px){.ai-band{grid-template-columns:1fr;padding:38px 26px}}
+
+  /* products */
+  .prod .card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+  .prod .frame{background:#dfe6f0;padding:10px 10px 0;border-bottom:1px solid var(--border)}
+  .prod .frame .bar{display:flex;gap:5px;padding:0 4px 8px}
+  .prod .frame .bar i{width:8px;height:8px;border-radius:50%;background:#b9c4d4}
+  .prod .frame img{border-radius:6px 6px 0 0;width:100%;height:180px;object-fit:cover;object-position:top left}
+  .prod .inner{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+  .prod .head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:4px}
+  .prod .name{font-family:var(--f-head);font-weight:700;font-size:19px;color:var(--navy)}
+  .badge{font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;border-radius:100px;padding:4px 10px;background:#e6f6ea;color:#1f7a37;white-space:nowrap}
+  .badge.early{background:#fff4dd;color:#a76a00}
+  .prod .cat{font-size:13px;font-weight:600;color:var(--azure);margin-bottom:12px}
+  .prod p{font-size:14.5px;color:var(--muted);flex:1}
+  .plink{margin-top:16px;font-size:14px;font-weight:600;color:var(--azure);text-decoration:none}
+  .plink:hover{text-decoration:underline}
+
+  /* team */
+  .team .card{text-align:left}
+  .creds{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}
+  @media(max-width:760px){.creds{grid-template-columns:1fr}}
+  .creds div{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--border);font-size:14.8px}
+  .creds svg{width:20px;height:20px;flex:0 0 auto;margin-top:2px}
+
+  /* articles */
   .ins .card{display:flex;flex-direction:column;text-decoration:none}
   .ins .card:hover h3{color:var(--azure)}
-  .ins .topic{
-    align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:1px;
-    text-transform:uppercase;border-radius:100px;padding:4px 12px;margin-bottom:14px;
-  }
-  .ins .topic.ia{background:#efe7ff;color:#6b3fd1}
-  .ins .topic.sec{background:#ffeceb;color:#c43d36}
-  .ins .card h3{font-size:16.5px;transition:color .15s}
-  .ins .card p{margin-top:8px;font-size:14px}
-  .ins .more{margin-top:10px;font-size:13px;color:var(--azure);font-weight:600}
-  .ins .archive{
-    margin-top:30px;background:var(--white);border:1px solid var(--border);
-    border-radius:var(--radius);padding:22px 26px;
-  }
-  .ins .archive h4{font-size:14px;color:var(--navy);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
-  .ins .archive ul{list-style:none;columns:2;column-gap:40px}
-  @media(max-width:700px){.ins .archive ul{columns:1}}
-  .ins .archive li{margin:6px 0;break-inside:avoid}
-  .ins .archive a{font-size:14px;color:var(--muted);text-decoration:none}
-  .ins .archive a:hover{color:var(--azure)}
-  .ins .archive a::before{content:"↗ ";color:var(--azure)}
+  .topic{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:100px;padding:4px 12px;margin-bottom:14px}
+  .topic.ia{background:#efe7ff;color:#6b3fd1}.topic.sec{background:#ffeceb;color:#c43d36}
+  .ins .card h3{font-size:17px;transition:color .15s}
+  .ins .card p{margin-top:8px;font-size:14px;flex:1}
+  .more{margin-top:12px;font-size:13px;color:var(--azure);font-weight:600}
+  .archive{margin-top:28px;border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px}
+  .archive h4{font-size:13px;color:var(--navy);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.2px}
+  .archive ul{list-style:none;columns:2;column-gap:40px}
+  @media(max-width:700px){.archive ul{columns:1}}
+  .archive li{margin:6px 0;break-inside:avoid}
+  .archive a{font-size:14px;color:var(--muted);text-decoration:none}
+  .archive a:hover{color:var(--azure)}
+  .archive a::before{content:"↗ ";color:var(--azure)}
 
-  /* ---------- authority ---------- */
-  .auth{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start}
-  @media(max-width:900px){.auth{grid-template-columns:1fr}}
-  .auth h2{font-size:clamp(25px,3.2vw,34px);color:var(--navy);margin:10px 0 18px}
-  .auth p{color:var(--muted);font-size:16px;margin-bottom:14px}
-  .cred-list{list-style:none;margin-top:8px}
-  .cred-list li{
-    display:flex;gap:13px;align-items:flex-start;padding:13px 0;
-    border-bottom:1px solid var(--border);font-size:15px;
-  }
-  .cred-list li:last-child{border-bottom:none}
-  .cred-list .dot{
-    flex:0 0 auto;width:26px;height:26px;border-radius:50%;margin-top:1px;
-    background:var(--ice);color:var(--azure);display:grid;place-items:center;
-    font-size:13px;font-weight:800;
-  }
-  blockquote{
-    background:var(--navy);color:#dbe6f5;border-radius:16px;
-    padding:30px 30px 24px;font-size:16.5px;line-height:1.65;position:relative;
-  }
-  blockquote::before{content:"“";font-size:58px;color:var(--azure);line-height:0;display:block;margin:18px 0 6px}
-  blockquote footer{margin-top:16px;font-size:13.5px;color:var(--muted-dark)}
-
-  /* ---------- contact ---------- */
-  .contact{background:var(--navy);color:var(--white);text-align:center}
-  .contact h2{font-size:clamp(25px,3.4vw,36px);margin-bottom:16px}
-  .contact p{color:#c4d2e6;max-width:620px;margin:0 auto 32px;font-size:16.5px}
-
-  footer.site{
-    background:var(--navy-2);color:var(--muted-dark);font-size:13.5px;
-    padding:30px 0;border-top:1px solid rgba(255,255,255,.07);
-  }
+  /* contact */
+  .contact{background:radial-gradient(800px 400px at 50% 120%,rgba(47,129,247,.25),transparent 60%),var(--navy);color:#fff;text-align:center}
+  .contact h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:16px}
+  .contact p{color:#c4d2e6;max-width:620px;margin:0 auto 30px;font-size:16.5px}
+  footer.site{background:var(--navy-2);color:var(--muted-dark);font-size:13.5px;padding:28px 0;border-top:1px solid rgba(255,255,255,.07)}
   footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* mobile sticky CTA */
+  .sticky-cta{display:none}
+  @media(max-width:700px){
+    header .btn{display:none}
+    .sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    footer.site{padding-bottom:84px}
+    section{padding:68px 0}
+    .report{transform:none}
+    .hero{padding:56px 0 60px}
+  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">
-      <span class="mark">IP</span>
-      <span>IPSEC<small>Consultoria e Tecnologia</small></span>
-    </a>
+    <a class="brand" href="#top"><span class="mark">IP</span><span>IPSEC<small>Consultoria e Tecnologia</small></span></a>
     <ul class="nav-links">
+      <li><a href="#diagnostico">Diagnóstico</a></li>
       <li><a href="#servicos">Consultoria</a></li>
-      <li><a href="#ia">Jornada de IA</a></li>
+      <li><a href="#ia">IA</a></li>
       <li><a href="#produtos">Produtos</a></li>
-      <li><a href="#artigos">Artigos</a></li>
       <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#artigos">Artigos</a></li>
     </ul>
-    <a class="btn" href="#contato">Agendar conversa</a>
+    <a class="btn btn-primary btn-sm" href="#contato">Solicitar diagnóstico</a>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap cols">
     <div>
       <span class="kicker">Infraestrutura · Nuvem · Segurança · IA</span>
-      <h1>Tecnologia séria para empresas que <em>não podem errar</em>.</h1>
-      <p class="lead">
-        Consultoria em Azure, Microsoft 365, redes e segurança — conduzida por quem passou
-        30 anos construindo, protegendo e operando ambientes críticos. Não aprendemos no seu
-        ambiente: chegamos com a experiência que o problema exige.
-      </p>
+      <h1>Seu ambiente Microsoft está <em>seguro, eficiente e pronto para IA?</em></h1>
+      <p class="lead">Descobrimos com um diagnóstico de escopo fechado: mapeamos riscos, desperdícios em nuvem e licenças e a prontidão para IA — e entregamos um plano executivo que você executa com ou sem a gente.</p>
       <div class="cta-row">
-        <a class="btn" href="#contato">Fale com um especialista</a>
-        <a class="btn ghost" href="#servicos">Conheça nossos serviços</a>
+        <a class="btn btn-primary" href="#contato">Solicitar diagnóstico</a>
+        <a class="btn btn-ghost" href="#diagnostico">Como funciona</a>
       </div>
+      <p class="sig">30 anos de mercado · duas décadas de reconhecimentos Microsoft</p>
     </div>
-    <div class="art" aria-hidden="true">
-      <!-- hero illustration: protected hybrid cloud network -->
-      <svg viewBox="0 0 460 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#2f81f7"/><stop offset="1" stop-color="#1a5fd0"/>
-          </linearGradient>
-          <linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#8ab8ff" stop-opacity=".9"/><stop offset="1" stop-color="#2f81f7" stop-opacity=".4"/>
-          </linearGradient>
-          <radialGradient id="glow" cx=".5" cy=".5" r=".5">
-            <stop offset="0" stop-color="#2f81f7" stop-opacity=".35"/><stop offset="1" stop-color="#2f81f7" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <circle cx="230" cy="190" r="185" fill="url(#glow)"/>
-        <!-- orbit rings -->
-        <ellipse cx="230" cy="190" rx="168" ry="168" stroke="#2c4470" stroke-dasharray="3 7"/>
-        <ellipse cx="230" cy="190" rx="118" ry="118" stroke="#2c4470" stroke-dasharray="3 7"/>
-        <!-- connection lines -->
-        <g stroke="#38558c" stroke-width="1.2">
-          <line x1="230" y1="190" x2="98" y2="92"/>
-          <line x1="230" y1="190" x2="362" y2="92"/>
-          <line x1="230" y1="190" x2="76" y2="268"/>
-          <line x1="230" y1="190" x2="384" y2="268"/>
-          <line x1="230" y1="190" x2="230" y2="338"/>
-        </g>
-        <!-- satellite: cloud -->
-        <g transform="translate(64,58)">
-          <rect width="68" height="68" rx="16" fill="#101e36" stroke="#2c4470"/>
-          <path d="M22 44c-5 0-9-4-9-9 0-4.6 3.4-8.3 7.8-8.9C22 20.6 27 17 33 17c7 0 12.7 5 13.8 11.6C51.4 29.5 55 33.3 55 38c0 5-4 9-9.2 9H22Z" transform="translate(-3,0) scale(.92)" fill="none" stroke="#8ab8ff" stroke-width="2.4" stroke-linejoin="round"/>
-        </g>
-        <!-- satellite: identity -->
-        <g transform="translate(328,58)">
-          <rect width="68" height="68" rx="16" fill="#101e36" stroke="#2c4470"/>
-          <circle cx="34" cy="27" r="9" stroke="#8ab8ff" stroke-width="2.4"/>
-          <path d="M17 52c2.5-8 9-12 17-12s14.5 4 17 12" stroke="#8ab8ff" stroke-width="2.4" stroke-linecap="round"/>
-        </g>
-        <!-- satellite: server -->
-        <g transform="translate(42,234)">
-          <rect width="68" height="68" rx="16" fill="#101e36" stroke="#2c4470"/>
-          <rect x="16" y="16" width="36" height="14" rx="3" stroke="#8ab8ff" stroke-width="2.2"/>
-          <rect x="16" y="38" width="36" height="14" rx="3" stroke="#8ab8ff" stroke-width="2.2"/>
-          <circle cx="23" cy="23" r="1.8" fill="#8ab8ff"/><circle cx="23" cy="45" r="1.8" fill="#8ab8ff"/>
-        </g>
-        <!-- satellite: cost chart -->
-        <g transform="translate(350,234)">
-          <rect width="68" height="68" rx="16" fill="#101e36" stroke="#2c4470"/>
-          <path d="M16 48 29 35l9 7 14-16" stroke="#8ab8ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M45 24h8v8" stroke="#8ab8ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        <!-- satellite: AI chip -->
-        <g transform="translate(196,304)">
-          <rect width="68" height="68" rx="16" fill="#101e36" stroke="#2c4470"/>
-          <rect x="20" y="20" width="28" height="28" rx="6" stroke="#8ab8ff" stroke-width="2.2"/>
-          <circle cx="34" cy="34" r="5" stroke="#8ab8ff" stroke-width="2.2"/>
-          <g stroke="#8ab8ff" stroke-width="2" stroke-linecap="round">
-            <line x1="27" y1="14" x2="27" y2="20"/><line x1="41" y1="14" x2="41" y2="20"/>
-            <line x1="27" y1="48" x2="27" y2="54"/><line x1="41" y1="48" x2="41" y2="54"/>
-            <line x1="14" y1="27" x2="20" y2="27"/><line x1="14" y1="41" x2="20" y2="41"/>
-            <line x1="48" y1="27" x2="54" y2="27"/><line x1="48" y1="41" x2="54" y2="41"/>
-          </g>
-        </g>
-        <!-- center shield -->
-        <g transform="translate(174,130)">
-          <circle cx="56" cy="60" r="62" fill="#0b1526" stroke="#2c4470"/>
-          <path d="M56 18 92 32v26c0 24-15 40-36 48-21-8-36-24-36-48V32l36-14Z" fill="url(#hg1)"/>
-          <path d="M40 60l11 11 21-22" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        <!-- pulse dots -->
-        <circle cx="98" cy="92" r="4" fill="url(#hg2)"/>
-        <circle cx="362" cy="92" r="4" fill="url(#hg2)"/>
-        <circle cx="76" cy="268" r="4" fill="url(#hg2)"/>
-        <circle cx="384" cy="268" r="4" fill="url(#hg2)"/>
-        <circle cx="230" cy="338" r="4" fill="url(#hg2)"/>
-      </svg>
+    <div aria-label="Exemplo ilustrativo de relatório executivo">
+      <div class="report">
+        <div class="top"><b>Diagnóstico Executivo</b><span>Resumo · exemplo</span></div>
+        <div class="body">
+          <div class="score">
+            <svg class="ring" viewBox="0 0 64 64"><circle cx="32" cy="32" r="27" fill="none" stroke="#eef2f8" stroke-width="7"/><circle cx="32" cy="32" r="27" fill="none" stroke="#f5a524" stroke-width="7" stroke-linecap="round" stroke-dasharray="104 170" transform="rotate(-90 32 32)"/><text x="32" y="37" text-anchor="middle" font-family="Sora,Inter,sans-serif" font-weight="700" font-size="16" fill="#0b1526">61</text></svg>
+            <div><h4>Maturidade geral do ambiente</h4><p>Segurança, nuvem, licenciamento e IA</p></div>
+          </div>
+          <div class="row"><span>Riscos críticos de segurança</span><span class="tagx t-red">3 críticos</span></div>
+          <div class="row"><span>Licenças e recursos ociosos</span><span class="tagx t-amb">economia possível</span></div>
+          <div class="row"><span>Uso de IA sem governança</span><span class="tagx t-amb">detectado</span></div>
+          <div class="row"><span>Plano de ação priorizado</span><span class="tagx t-blu">90 dias</span></div>
+          <div class="row"><span>Quick wins</span><span class="tagx t-grn">5 ações</span></div>
+          <p class="foot">Exemplo ilustrativo — não representa um cliente real.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -343,313 +260,210 @@
 <div class="proofbar">
   <div class="wrap">
     <div><b>30+</b><span>anos em TI, segurança e nuvem</span></div>
-    <div><b>2 décadas</b><span>de premiações Microsoft, incluindo MVP e Regional Director</span></div>
-    <div><b>CISSP</b><span>certificação internacional de segurança desde 2009</span></div>
-    <div><b>4</b><span>cases publicados pela própria Microsoft</span></div>
+    <div><b>2 décadas</b><span>de reconhecimentos Microsoft</span></div>
+    <div><b>CISSP</b><span>segurança da informação desde 2009</span></div>
+    <div><b>3 produtos</b><span>próprios de segurança e IA</span></div>
   </div>
 </div>
 
+<div class="techstrip">
+  <div class="wrap">
+    <span class="lbl">Especialidades</span>
+    <span>Microsoft Azure</span><span>Microsoft 365</span><span>Windows Server</span><span>Active Directory</span><span>Hyper-V</span><span>Redes e Firewall</span><span>FinOps</span>
+  </div>
+</div>
+
+<!-- PROVA -->
+<section style="padding:60px 0">
+  <div class="wrap proof">
+    <blockquote>
+      One of the best security professionals in Brazil and Latin America… a recognized authority in Security.
+      <footer>— Principal Technical Program Manager, Microsoft · recomendação pública no LinkedIn</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section class="alt" id="diagnostico">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Por onde começar</span>
+      <h2>Diagnóstico Executivo de Ambiente</h2>
+      <p>Antes de qualquer projeto, clareza. Escopo e prazo fechados, linguagem para a diretoria e um plano que serve à sua empresa — mesmo que você não nos contrate depois.</p>
+    </div>
+    <div class="offer">
+      <ol class="steps">
+        <li><h4>Conversa de alinhamento</h4><p>Entendemos negócio, prioridades e preocupações da diretoria e da TI.</p></li>
+        <li><h4>Leitura do ambiente</h4><p>Infraestrutura, identidade, segurança, Azure, Microsoft 365, licenças e uso de IA.</p></li>
+        <li><h4>Análise e priorização</h4><p>Riscos ordenados por impacto no negócio, não por jargão técnico.</p></li>
+        <li><h4>Apresentação executiva</h4><p>Reunião com diretoria e TI: o que fazer, em que ordem e quanto custa não fazer.</p></li>
+      </ol>
+      <div class="deliver">
+        <h3>O que você recebe</h3>
+        <p>Um material objetivo, para decisão — não um PDF de prateleira.</p>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Z"/></svg><div><b>Mapa de riscos priorizado</b><span>Segurança, disponibilidade e exposição a ransomware</span></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 9 13l4 3.5L20 9"/><path d="M15.5 9H20v4.5"/></svg><div><b>Oportunidades de economia</b><span>Nuvem, licenciamento Microsoft e recursos ociosos</span></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M9.5 4v3M14.5 4v3M9.5 17v3M14.5 17v3M4 9.5h3M4 14.5h3M17 9.5h3M17 14.5h3"/></svg><div><b>Prontidão para IA</b><span>Uso atual, riscos de dados e caminho seguro de adoção</span></div></div>
+        <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#f5a524" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg><div><b>Plano de 90 dias</b><span>Quick wins e roadmap com esforço e prioridade</span></div></div>
+        <a class="btn btn-primary" href="#contato">Quero o diagnóstico</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
 <section id="servicos">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag">Consultoria</span>
-      <h2>Serviços para ambientes que precisam funcionar — e provar que funcionam</h2>
-      <p>Do diagnóstico ao projeto executado: avaliamos, desenhamos e conduzimos a evolução
-      do seu ambiente Microsoft, com segurança e custo sob controle desde o primeiro dia.</p>
+      <h2>Do diagnóstico à execução, em três frentes</h2>
+      <p>Conduzimos os projetos que o diagnóstico revela — com a mesma equipe, sem terceirizar o que importa.</p>
     </div>
     <div class="grid c3">
       <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 19a4.5 4.5 0 1 1 .9-8.9 6 6 0 0 1 11.6 1.6A3.7 3.7 0 0 1 18.5 19h-12Z"/><path d="M12 12v6M9.5 14.5 12 12l2.5 2.5"/></svg></div>
-        <h3>Projetos Azure</h3>
-        <p>Arquitetura, migração e operação de workloads no Azure — incluindo cenários híbridos com o datacenter que você já tem.</p>
-        <ul>
-          <li>Migração e modernização de servidores</li>
-          <li>Redes híbridas e conectividade segura</li>
-          <li>Alta disponibilidade e disaster recovery</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6"/><path d="m20 20-5-5"/><path d="M8 10.5h5M10.5 8v5"/></svg></div>
-        <h3>Análise de ambiente</h3>
-        <p>Assessment completo de infraestrutura, identidade e segurança: o que existe, o que está em risco e o que fazer primeiro.</p>
-        <ul>
-          <li>Inventário e mapa de riscos priorizado</li>
-          <li>Active Directory e identidade</li>
-          <li>Plano de ação executável, não um PDF de prateleira</li>
-        </ul>
-      </div>
-      <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Z"/><path d="m8.8 11.8 2.3 2.3 4.4-4.6"/></svg></div>
-        <h3>Redes e segurança</h3>
-        <p>Proteção de perímetro, segmentação, hardening e resposta — com a visão de quem constrói produtos de segurança, não só os revende.</p>
-        <ul>
-          <li>Segurança de servidores Windows e AD</li>
-          <li>Proteção contra ransomware</li>
-          <li>Arquitetura de redes corporativas</li>
-        </ul>
+        <h3>Segurança e redes</h3>
+        <p>Reduzir a superfície de ataque e a chance de parar a operação.</p>
+        <ul><li>Hardening de servidores Windows e AD</li><li>Proteção contra ransomware</li><li>Arquitetura e segmentação de redes</li></ul>
       </div>
       <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.5"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.5"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.5"/></svg></div>
-        <h3>Microsoft 365</h3>
-        <p>Implantação e governança do ambiente de trabalho moderno: colaboração produtiva sem abrir mão de controle.</p>
-        <ul>
-          <li>Migração de e-mail e colaboração</li>
-          <li>Segurança e conformidade no M365</li>
-          <li>Teams, SharePoint e automação</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 9 13l4 3.5L20 9"/><path d="M15.5 9H20v4.5"/><path d="M4 4v16h16" opacity=".45"/></svg></div>
-        <h3>Custos de nuvem e licenciamento</h3>
-        <p>FinOps pragmático: pagar o que precisa, do jeito certo. Revisão de licenças, dimensionamento e otimização contínua.</p>
-        <ul>
-          <li>Diagnóstico de gastos Azure e M365</li>
-          <li>Otimização de licenciamento Microsoft</li>
-          <li>Governança de custos recorrente</li>
-        </ul>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 19a4.5 4.5 0 1 1 .9-8.9 6 6 0 0 1 11.6 1.6A3.7 3.7 0 0 1 18.5 19h-12Z"/></svg></div>
+        <h3>Nuvem, M365 e custos</h3>
+        <p>Infraestrutura moderna, pagando apenas pelo que gera valor.</p>
+        <ul><li>Projetos e migração para Azure</li><li>Implantação e governança do Microsoft 365</li><li>Gestão de custos de nuvem e licenças</li></ul>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><circle cx="12" cy="12" r="2"/><path d="M9.5 4v3M14.5 4v3M9.5 17v3M14.5 17v3M4 9.5h3M4 14.5h3M17 9.5h3M17 14.5h3"/></svg></div>
-        <h3>Adoção de IA com governança</h3>
-        <p>Da política de uso à implantação de copilotos e agentes: IA que gera resultado sem virar risco jurídico ou surpresa na fatura.</p>
-        <ul>
-          <li>Estratégia e casos de uso priorizados</li>
-          <li>Visibilidade e controle do uso de IA</li>
-          <li>Orçamento e monitoramento de custos</li>
-        </ul>
+        <h3>IA com governança</h3>
+        <p>Adotar IA com resultado, sem risco jurídico nem surpresa na fatura.</p>
+        <ul><li>Política de uso e diagnóstico de shadow AI</li><li>Copilot e agentes no Microsoft 365</li><li>Orçamento e controle de custos de IA</li></ul>
       </div>
     </div>
   </div>
 </section>
 
+<!-- IA -->
 <section class="alt" id="ia">
   <div class="wrap">
     <div class="ai-band">
       <div>
-        <h2>Sua empresa vai usar IA. A questão é: com ou sem controle?</h2>
-        <p>
-          Seus colaboradores provavelmente já usam IA — muitas vezes sem que ninguém saiba,
-          em ferramentas não aprovadas, com dados da empresa. Ajudamos você a transformar esse
-          risco em vantagem: uma jornada de adoção estruturada, com segurança, governança e
-          custo previsível.
-        </p>
-        <div class="pill-list">
-          <span class="pill">Diagnóstico de uso de IA (shadow AI)</span>
-          <span class="pill">Política de uso e governança</span>
-          <span class="pill">Copilot e agentes no M365</span>
-          <span class="pill">Controle de custos de IA</span>
-        </div>
+        <h2>Sua empresa já usa IA. A questão é: com ou sem controle?</h2>
+        <p>Colaboradores usam ferramentas de IA não aprovadas, com dados da empresa e custos que ninguém acompanha. Transformamos esse risco em vantagem: adoção estruturada, com segurança, governança e orçamento previsível.</p>
+        <div class="pills"><span class="pill">Shadow AI</span><span class="pill">Política de uso</span><span class="pill">Copilot e agentes</span><span class="pill">Custos de IA</span></div>
       </div>
-      <div class="side">
-        <!-- AI governance radar illustration -->
-        <svg viewBox="0 0 320 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="1" y="1" width="318" height="168" rx="14" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.14)"/>
-          <circle cx="160" cy="88" r="58" stroke="#38558c"/>
-          <circle cx="160" cy="88" r="38" stroke="#38558c"/>
-          <circle cx="160" cy="88" r="18" stroke="#38558c"/>
-          <path d="M160 88 214 60" stroke="#8ab8ff" stroke-width="2"/>
-          <path d="M160 88 214 60A58 58 0 0 0 162 30l-2 58Z" fill="rgba(47,129,247,.25)"/>
-          <circle cx="135" cy="70" r="4" fill="#3fb950"/>
-          <circle cx="185" cy="112" r="4" fill="#3fb950"/>
-          <circle cx="128" cy="112" r="4" fill="#e5534b"/>
-          <circle cx="196" cy="52" r="4" fill="#e5534b"/>
-          <g font-family="Segoe UI,Arial" font-size="10.5" fill="#9db1cc">
-            <text x="22" y="26">uso de IA detectado</text>
-            <text x="236" y="56">não aprovado</text>
-            <text x="236" y="120">homologado</text>
-          </g>
-          <circle cx="160" cy="88" r="4.5" fill="#2f81f7"/>
-        </svg>
-        <div class="note">
-          <h3>Não é teoria — é produto</h3>
-          <p>
-            Desenvolvemos o <strong>ShadowAIGuard</strong>, software que detecta e governa o uso
-            de IA no ambiente corporativo. A metodologia que aplicamos na consultoria é a mesma
-            que colocamos dentro de produto.
-          </p>
-        </div>
+      <div>
+        <div class="shot"><img src="assets/shots/shadowaiguard.webp" alt="Tela real do ShadowAIGuard mostrando custo estimado de IA por provedor" loading="lazy" width="960" height="489"></div>
+        <p class="cap">Tela real do ShadowAIGuard, produto nosso: custo estimado de IA por provedor.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PRODUTOS -->
 <section class="prod" id="produtos">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag">Produtos próprios</span>
       <h2>Quem constrói software de segurança entende de segurança</h2>
-      <p>Além da consultoria, desenvolvemos produtos que resolvem problemas reais de empresas
-      que operam ambientes Windows — e que provam, em código, a profundidade do que sabemos fazer.</p>
+      <p>Além da consultoria, desenvolvemos produtos para ambientes Windows — prova, em código, da profundidade do que fazemos.</p>
     </div>
     <div class="grid c3">
-      <div class="card rg">
-        <span class="badge">Disponível</span>
-        <div class="shot">
-          <!-- RansomGuard: threat contained dashboard -->
-          <svg viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="360" height="150" fill="#0b1526"/>
-            <rect x="0" y="0" width="360" height="26" fill="#101e36"/>
-            <circle cx="14" cy="13" r="4" fill="#e5534b"/><circle cx="28" cy="13" r="4" fill="#d29922"/><circle cx="42" cy="13" r="4" fill="#3fb950"/>
-            <path d="M52 92 84 92 96 60 112 118 126 78 136 92 308 92" stroke="#e5534b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="238" y="40" width="96" height="30" rx="7" fill="rgba(229,83,75,.12)" stroke="#e5534b"/>
-            <text x="252" y="59" font-family="Segoe UI,Arial" font-size="11" fill="#ff8a84">ameaça contida</text>
-            <g transform="translate(40,36)">
-              <path d="M14 0 28 5v9c0 8.5-5.6 14.5-14 17C5.6 28.5 0 22.5 0 14V5L14 0Z" fill="#e5534b"/>
-              <path d="m8 13 4.2 4.2L20.5 9" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <g fill="#22365c">
-              <rect x="40" y="122" width="60" height="7" rx="3.5"/>
-              <rect x="110" y="122" width="40" height="7" rx="3.5"/>
-              <rect x="160" y="122" width="52" height="7" rx="3.5"/>
-            </g>
-          </svg>
+      <div class="card">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="assets/shots/ransomguard.webp" alt="Tela real do RansomGuard: visão geral de prontidão contra ransomware" loading="lazy" width="960" height="373"></div>
+        <div class="inner">
+          <div class="head"><span class="name">RansomGuard</span><span class="badge">Disponível</span></div>
+          <div class="cat">Proteção contra ransomware</div>
+          <p>Detecta e contém ransomware em servidores Windows antes que o estrago se espalhe.</p>
+          <a class="plink" href="https://www.ransomguard.com.br" target="_blank" rel="noopener">Conhecer o RansomGuard ↗</a>
         </div>
-        <div class="logo">RansomGuard</div>
-        <div class="cat">Proteção contra ransomware</div>
-        <p>Detecta e contém ransomware em servidores Windows antes que o estrago se espalhe.
-        Monitoramento de pastas, sensores de comportamento e políticas de resposta.</p>
-        <a class="plink" href="https://www.ransomguard.com.br" target="_blank" rel="noopener">Conhecer o RansomGuard ↗</a>
       </div>
-      <div class="card sg">
-        <span class="badge">Disponível</span>
-        <div class="shot">
-          <!-- ShadowAIGuard: AI traffic governance -->
-          <svg viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="360" height="150" fill="#0b1526"/>
-            <rect x="0" y="0" width="360" height="26" fill="#101e36"/>
-            <circle cx="14" cy="13" r="4" fill="#8957e5"/><circle cx="28" cy="13" r="4" fill="#d29922"/><circle cx="42" cy="13" r="4" fill="#3fb950"/>
-            <g stroke="#38558c" stroke-width="1.4">
-              <line x1="70" y1="56" x2="170" y2="88"/><line x1="70" y1="88" x2="170" y2="88"/><line x1="70" y1="120" x2="170" y2="88"/>
-              <line x1="190" y1="88" x2="300" y2="62"/><line x1="190" y1="88" x2="300" y2="114"/>
-            </g>
-            <rect x="40" y="44" width="30" height="22" rx="5" fill="#22365c"/>
-            <rect x="40" y="77" width="30" height="22" rx="5" fill="#22365c"/>
-            <rect x="40" y="110" width="30" height="22" rx="5" fill="#22365c"/>
-            <g transform="translate(162,70)">
-              <rect width="36" height="36" rx="9" fill="#8957e5"/>
-              <rect x="9" y="9" width="18" height="18" rx="4" stroke="#fff" stroke-width="2"/>
-              <circle cx="18" cy="18" r="3" fill="#fff"/>
-            </g>
-            <rect x="292" y="48" width="52" height="24" rx="6" fill="rgba(63,185,80,.14)" stroke="#3fb950"/>
-            <text x="301" y="64" font-family="Segoe UI,Arial" font-size="10.5" fill="#6fdd8b">liberado</text>
-            <rect x="292" y="100" width="56" height="24" rx="6" fill="rgba(229,83,75,.14)" stroke="#e5534b"/>
-            <text x="300" y="116" font-family="Segoe UI,Arial" font-size="10.5" fill="#ff8a84">bloqueado</text>
-          </svg>
+      <div class="card">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="assets/shots/shadowaiguard.webp" alt="Tela real do ShadowAIGuard" loading="lazy" width="960" height="489"></div>
+        <div class="inner">
+          <div class="head"><span class="name">ShadowAIGuard</span><span class="badge">Disponível</span></div>
+          <div class="cat">Governança de IA corporativa</div>
+          <p>Visibilidade e controle de todo uso de IA no endpoint, sem inspecionar conteúdo. Do shadow AI ao uso homologado.</p>
+          <a class="plink" href="https://www.shadowaiguard.com.br" target="_blank" rel="noopener">Conhecer o ShadowAIGuard ↗</a>
         </div>
-        <div class="logo">ShadowAIGuard</div>
-        <div class="cat">Governança de IA corporativa</div>
-        <p>Firewall de IA para Active Directory: visibilidade de todo uso de IA no endpoint —
-        sem inspecionar conteúdo — e bloqueio por política. Do shadow AI ao uso homologado.</p>
-        <a class="plink" href="https://www.shadowaiguard.com.br" target="_blank" rel="noopener">Conhecer o ShadowAIGuard ↗</a>
       </div>
-      <div class="card pu">
-        <span class="badge">Acesso antecipado</span>
-        <div class="shot">
-          <!-- Pulso: uptime monitoring -->
-          <svg viewBox="0 0 360 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="360" height="150" fill="#0b1526"/>
-            <rect x="0" y="0" width="360" height="26" fill="#101e36"/>
-            <circle cx="14" cy="13" r="4" fill="#3fb950"/><circle cx="28" cy="13" r="4" fill="#d29922"/><circle cx="42" cy="13" r="4" fill="#e5534b"/>
-            <path d="M30 86h60l12-26 16 52 14-38 10 12h58l12-26 16 44 12-28 10 10h80" stroke="#3fb950" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <g fill="#22365c">
-              <rect x="30" y="112" width="74" height="20" rx="6"/>
-              <rect x="114" y="112" width="74" height="20" rx="6"/>
-              <rect x="198" y="112" width="74" height="20" rx="6"/>
-            </g>
-            <g font-family="Segoe UI,Arial" font-size="10.5" fill="#9db1cc">
-              <text x="42" y="126">servidores</text>
-              <text x="132" y="126">sites IIS</text>
-              <text x="212" y="126">evidências</text>
-            </g>
-            <circle cx="318" cy="46" r="5" fill="#3fb950"/>
-            <text x="286" y="50" font-family="Segoe UI,Arial" font-size="10.5" fill="#6fdd8b" text-anchor="end">no ar</text>
-          </svg>
+      <div class="card">
+        <div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="assets/shots/pulso.webp" alt="Tela real do Pulso: tráfego de site IIS" loading="lazy" width="960" height="249"></div>
+        <div class="inner">
+          <div class="head"><span class="name">Pulso</span><span class="badge early">Acesso antecipado</span></div>
+          <div class="cat">Monitoramento de servidores IIS</div>
+          <p>Saúde, desempenho e tráfego de sites IIS com diagnósticos acionáveis — dados ficam no seu ambiente.</p>
+          <a class="plink" href="https://www.pulsoiis.com.br" target="_blank" rel="noopener">Conhecer o Pulso ↗</a>
         </div>
-        <div class="logo">Pulso</div>
-        <div class="cat">Monitoramento de servidores</div>
-        <p>Monitoramento contínuo de servidores Windows e IIS com análise de ambiente e
-        diagnóstico — feito para quem precisa saber que está tudo no ar, com evidências.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="alt" id="quem-somos">
-  <div class="wrap auth">
-    <div>
-      <span class="tag" style="font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--azure)">Quem somos</span>
+<!-- QUEM SOMOS -->
+<section class="alt team" id="quem-somos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Quem somos</span>
       <h2>Experiência que não se improvisa</h2>
-      <p>
-        A IPSEC nasce da união de três sócios: liderança técnica reconhecida
-        internacionalmente, experiência de gestão em projetos corporativos e uma rede
-        consolidada de relacionamento com empresas do Espírito Santo.
-      </p>
-      <p>
-        À frente da prática técnica está um profissional com três décadas de estrada:
-        fundador de empresa de tecnologia adquirida por um dos maiores grupos educacionais
-        do país, ex-CTO universitário por 17 anos, Ph.D. e palestrante em eventos Microsoft
-        no Brasil e no exterior.
-      </p>
-      <ul class="cred-list">
-        <li><span class="dot">✓</span><span><strong>Duas décadas de reconhecimentos Microsoft</strong> — incluindo os títulos MVP e Regional Director, concedidos a um grupo seleto de especialistas no mundo</span></li>
-        <li><span class="dot">✓</span><span><strong>CISSP desde 2009</strong> — a principal certificação internacional de segurança da informação</span></li>
-        <li><span class="dot">✓</span><span><strong>Palestras em eventos Microsoft</strong> no Brasil e no exterior, incluindo conferências internacionais da companhia</span></li>
-        <li><span class="dot">✓</span><span><strong>Cases de clientes publicados pela própria Microsoft</strong> em nuvem híbrida, virtualização e segurança</span></li>
-      </ul>
+      <p>Três sócios, três competências complementares — e uma premissa: autoridade não se declara, se demonstra.</p>
     </div>
-    <div>
-      <blockquote>
-        One of the best security professionals in Brazil and Latin America… a recognized
-        authority in Security.
-        <footer>— Principal Technical Program Manager, Microsoft (recomendação no LinkedIn)</footer>
-      </blockquote>
-      <div class="card" style="margin-top:22px">
-        <h3>Por que isso importa para você</h3>
-        <p>
-          Consultoria é um mercado de promessas. Nós preferimos histórico verificável:
-          certificações públicas, cases publicados pela Microsoft, produtos em produção
-          e clientes que podem ser consultados. Autoridade não se declara — se demonstra.
-        </p>
+    <div class="grid c3">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v5c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6l8-3Z"/></svg></div>
+        <h3>Liderança técnica</h3>
+        <p>Três décadas em infraestrutura, nuvem e segurança. Fundador de empresa de tecnologia adquirida por um dos maiores grupos educacionais do país e ex-CTO universitário por 17 anos.</p>
       </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg></div>
+        <h3>Gestão de projetos</h3>
+        <p>Condução de projetos corporativos com método, prazo e comunicação clara com a diretoria.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9.5" r="2.4"/><path d="M3.5 19c.8-3.2 3-5 5.5-5s4.7 1.8 5.5 5M14.5 15.2c.8-.5 1.6-.7 2.5-.7 2 0 3.5 1.4 4 4"/></svg></div>
+        <h3>Relacionamento e negócios</h3>
+        <p>Rede consolidada com empresas do Espírito Santo e entendimento real do mercado local.</p>
+      </div>
+    </div>
+    <div class="creds">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span><strong>Duas décadas de reconhecimentos Microsoft</strong>, incluindo os títulos MVP e Regional Director</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span><strong>CISSP desde 2009</strong>, principal certificação internacional de segurança</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span><strong>Palestras em eventos Microsoft</strong> no Brasil e no exterior</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="#2f81f7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span><strong>Produtos próprios em produção</strong> em segurança e governança de IA</span></div>
     </div>
   </div>
 </section>
 
+<!-- ARTIGOS -->
 <section class="ins" id="artigos">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag">Artigos</span>
       <h2>O que pensamos, publicamos</h2>
-      <p>Autoridade se demonstra por escrito. Uma seleção de artigos publicados no LinkedIn
-      sobre IA corporativa, segurança e o futuro da engenharia de software.</p>
+      <p>Uma seleção de artigos publicados no LinkedIn sobre IA corporativa, segurança e o futuro da engenharia de software.</p>
     </div>
     <div class="grid c2">
       <a class="card" href="https://www.linkedin.com/pulse/determinismo-vs-probabilidade-entendendo-era-dos-de-ia-immaginario-ldbzf" target="_blank" rel="noopener">
         <span class="topic ia">Inteligência Artificial</span>
         <h3>Determinismo vs. Probabilidade: entendendo a era dos Agentes de IA</h3>
-        <p>Por que softwares que "acertam quase sempre" exigem um jeito novo de pensar risco,
-        controle e arquitetura — a base da nossa visão de IA com governança.</p>
+        <p>Por que softwares que "acertam quase sempre" exigem um jeito novo de pensar risco, controle e arquitetura.</p>
         <span class="more">Ler no LinkedIn ↗</span>
       </a>
       <a class="card" href="https://www.linkedin.com/pulse/o-fim-da-programa%C3%A7%C3%A3o-como-conhecemos-e-nascimento-de-uma-immaginario-voysf" target="_blank" rel="noopener">
         <span class="topic ia">Inteligência Artificial</span>
         <h3>O fim da programação como a conhecemos — e o nascimento de uma nova Engenharia de Software</h3>
-        <p>O que muda na construção de software quando agentes entram no ciclo — e o que isso
-        significa para quem contrata tecnologia.</p>
+        <p>O que muda quando agentes entram no ciclo de construção de software — e o que isso significa para quem contrata tecnologia.</p>
         <span class="more">Ler no LinkedIn ↗</span>
       </a>
       <a class="card" href="https://www.linkedin.com/pulse/o-fantasma-da-substitui%C3%A7%C3%A3o-por-que-p%C3%A2nico-ia-j%C3%A1-antes-immaginario-ycyje" target="_blank" rel="noopener">
         <span class="topic ia">Inteligência Artificial</span>
         <h3>O Fantasma da Substituição: por que o pânico da IA já aconteceu antes</h3>
-        <p>Uma leitura histórica das ondas de automação — e por que a resposta certa é
-        adoção estruturada, não pânico nem negação.</p>
+        <p>Uma leitura histórica das ondas de automação — e por que a resposta certa é adoção estruturada.</p>
         <span class="more">Ler no LinkedIn ↗</span>
       </a>
       <a class="card" href="https://www.linkedin.com/pulse/o-file-server-do-windows-pode-ajudar-nativamente-de-immaginario" target="_blank" rel="noopener">
         <span class="topic sec">Segurança</span>
         <h3>O File Server do Windows pode ajudar, nativamente, a proteger de ransomware?</h3>
-        <p>Proteção contra ransomware com o que você já tem — o tipo de pergunta que deu
-        origem ao nosso produto RansomGuard.</p>
+        <p>Proteção contra ransomware com o que você já tem — a pergunta que deu origem ao RansomGuard.</p>
         <span class="more">Ler no LinkedIn ↗</span>
       </a>
     </div>
@@ -659,20 +473,18 @@
         <li><a href="https://www.linkedin.com/pulse/cryptolocker-ransomware-o-que-%C3%A9-e-como-se-proteger-immaginario" target="_blank" rel="noopener">Cryptolocker (Ransomware): o que é e como se proteger?</a></li>
         <li><a href="https://www.linkedin.com/pulse/bypass-applocker-e-agora-rodrigo-immaginario" target="_blank" rel="noopener">Bypass no AppLocker — e agora?</a></li>
         <li><a href="https://www.linkedin.com/pulse/configurando-dns-reverso-azure-rodrigo-immaginario" target="_blank" rel="noopener">Configurando DNS reverso no Azure</a></li>
-        <li><a href="https://www.linkedin.com/pulse/dica-r%C3%A1pida-para-melhoria-de-desempenho-do-sql-server-immaginario" target="_blank" rel="noopener">Dica rápida para melhora de desempenho do SQL Server em VM no Azure</a></li>
+        <li><a href="https://www.linkedin.com/pulse/dica-r%C3%A1pida-para-melhoria-de-desempenho-do-sql-server-immaginario" target="_blank" rel="noopener">Dica rápida de desempenho do SQL Server em VM no Azure</a></li>
       </ul>
     </div>
   </div>
 </section>
 
+<!-- CONTATO -->
 <section class="contact" id="contato">
   <div class="wrap">
-    <h2>Vamos conversar sobre o seu ambiente?</h2>
-    <p>
-      Uma primeira conversa sem compromisso: entendemos seu cenário, apontamos os riscos e
-      oportunidades mais evidentes e dizemos, com franqueza, se e como podemos ajudar.
-    </p>
-    <a class="btn" href="mailto:contato@exemplo.com.br?subject=Quero%20conversar%20sobre%20meu%20ambiente">Agendar conversa</a>
+    <h2>Comece pelo diagnóstico</h2>
+    <p>Uma primeira conversa sem compromisso: entendemos seu cenário e dizemos, com franqueza, se e como podemos ajudar.</p>
+    <a class="btn btn-primary" href="mailto:contato@exemplo.com.br?subject=Quero%20o%20Diagn%C3%B3stico%20Executivo%20de%20Ambiente">Solicitar diagnóstico</a>
   </div>
 </section>
 
@@ -682,6 +494,8 @@
     <span>Azure · Microsoft 365 · Segurança · FinOps · IA</span>
   </div>
 </footer>
+
+<a class="btn btn-primary sticky-cta" href="#contato">Solicitar diagnóstico</a>
 
 </body>
 </html>
